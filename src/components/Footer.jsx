@@ -19,7 +19,7 @@ const Footer = () => {
                 </span>
 
                 <button
-                  className="py-2 px-4 bg-blue-500 rounded-lg rounded-r-full -ml-5"
+                  className="py-2 px-4 bg-blue-500 text-white rounded-lg rounded-r-full -ml-5"
                   onClick={() =>
                     (window.location.href = "mailto:cregordudes@gmail.com")
                   }
