@@ -52,7 +52,7 @@ const ProfilePresentation = () => {
                 </div>
               </div>
             </div>
-            <div class="mb-2 text-blueGray-600 text-center mt-4">
+            <div class="my-4 text-blueGray-600 text-center">
               <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
               Моя цель заключается в том чтобы достичь успеха и избавиться от
               моей депрессии блин

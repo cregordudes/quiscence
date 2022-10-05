@@ -1,25 +1,16 @@
 import React from "react";
-import Advices from "../src/components/Advices";
-import Characteristics from "../src/components/Characteristics";
-import ProfileCourse from "../src/components/ProfileCourse";
 import ProfileInfo from "../src/components/ProfileInfo";
 import ProfilePresentation from "../src/components/ProfilePresentation";
+import Recommendations from "../src/components/Recommendations";
 
 export default function Account() {
   return (
-    <div>
-      {
-        //left
-      }
+    <div className="w-full flex flex-row justify-between">
       <ProfilePresentation />
-      {
-        //middle
-        //   <ProfileInfo />
-        //   <Characteristics />
-        //right
-        //   <ProfileCourse />
-        //   <Advices />
-      }
+
+      <ProfileInfo />
+
+      <Recommendations />
     </div>
   );
 }
