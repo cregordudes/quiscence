@@ -11,7 +11,7 @@ const TextBlock = ({ title, heading, text, id }) => {
       </p>
       {id == 1 && (
         <button className="bg-indigo-500 text-slate-100 w-4/12 p-1 mt-3 rounded-xl">
-          Try the shit
+          Пройти тест
         </button>
       )}
     </div>

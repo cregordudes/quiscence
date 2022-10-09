@@ -75,7 +75,7 @@ const Navbar = () => {
         <li>
           <Link href="#">
             <a className="text-sm text-slate-500 hover:text-slate-600 custom-underline">
-              Наша цель
+              Пройти тест
             </a>
           </Link>
         </li>
@@ -98,7 +98,7 @@ const Navbar = () => {
         <li>
           <Link href="#">
             <a className="text-sm  text-slate-500 hover:text-slate-600 custom-underline">
-              Как это работает
+              Наша цель
             </a>
           </Link>
         </li>

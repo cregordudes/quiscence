@@ -9,7 +9,7 @@ const Characteristics = () => {
     { min: "Паника", max: "Спокйоствие", value: 70 },
   ];
   return (
-    <div className="mx-auto my-5 px-4 py-2 bg-blue-200 text-slate-600 rounded-lg ">
+    <div className="mx-auto my-5 px-4 py-2 shadow-lg rounded-lg ">
       <h2 className="text-slate-800 font-semibold text-lg">Characteristics</h2>
 
       {chars.map((el, idx) => {

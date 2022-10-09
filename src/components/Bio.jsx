@@ -2,7 +2,7 @@ import React from "react";
 
 const Bio = () => {
   return (
-    <div className="mx-auto px-4 py-2 bg-blue-200 text-slate-600 rounded-lg ">
+    <div className="mx-auto px-4 py-2 text-slate-600 shadow-lg rounded-lg ">
       <h2 className="text-slate-800 font-semibold text-lg">Bio</h2>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
