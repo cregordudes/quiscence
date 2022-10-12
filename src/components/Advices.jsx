@@ -5,7 +5,7 @@ const Advices = () => {
   const results = [
     { color: "#FFD438", word: "Сон", percent: "85" },
     { color: "#10cfcf", word: "Здоровье", percent: "50" },
-    { color: "#3b82f6(59 130 246);", word: "Удовлетворение", percent: "35" },
+    { color: "#3b82f6", word: "Удовлетворение", percent: "35" },
   ];
 
   const final = { color: "crimson", word: "", percent: "65" };

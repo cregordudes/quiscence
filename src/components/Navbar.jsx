@@ -3,14 +3,9 @@ import React, { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [navbar, setNavbar] = useState(false);
 
   const { googleSignIn, user, logOut } = UserAuth();
-
-  const ulStyle = isOpen ? " " : "hidden ";
-  const styles =
-    ulStyle +
-    "absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2  lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6";
 
   const handleGoogleSignIn = async () => {
     try {
@@ -28,139 +23,120 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
-      <Link href="/">
-        <a className="text-3xl font-bold leading-none ">Quicsence</a>
-      </Link>
-      <div className="lg:hidden">
-        <button
-          className="navbar-burger flex items-center text-blue-600 p-3"
-          onClick={() => setIsOpen(!isOpen)}
+    <nav className="w-full bg-white border-b-2">
+      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <div className="flex items-center justify-between py-3 md:w-1/4 md:py-5 md:block">
+          <Link href="/">
+            <h2 className="text-2xl font-bold cursor-pointer">Quiscence</h2>
+          </Link>
+          <div className="md:hidden">
+            <button
+              className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+              onClick={() => setNavbar(!navbar)}
+            >
+              {navbar ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+
+        <div
+          className={`flex-1 justify-self-center pb-3 mt-8 md:w-3/4 md:block md:pb-0 md:mt-0 lg:w-2/4 ${
+            navbar ? "block" : "hidden"
+          }`}
         >
-          <svg
-            className="block h-4 w-4 fill-current"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Mobile menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-          </svg>
-        </button>
+          <ul className="items-center justify-between space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <li className="text-slate-500 hover:text-slate-600 custom-underline">
+              <Link href="/about">О нас</Link>
+            </li>
+            <li className="text-slate-500 hover:text-slate-600 custom-underline">
+              <Link href="#">Пройти тест</Link>
+            </li>
+            <li className="text-slate-500 hover:text-slate-600 custom-underline">
+              <Link href="/goal">Наша цель</Link>
+            </li>
+            <li className="text-slate-500 hover:text-slate-600 custom-underline">
+              <Link href="/contacts">Контакты</Link>
+            </li>
+            {user?.displayName ? (
+              <>
+                <li className="text-gray-600 hover:text-blue-600">
+                  <Link href="/account">
+                    <img
+                      className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200"
+                      src={user?.photoURL}
+                      alt="photo"
+                    />
+                  </Link>
+                </li>
+
+                <li className="text-gray-600 hover:text-blue-600">
+                  <Link href="#">
+                    <a
+                      onClick={handleSignOut}
+                      className=" lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                    >
+                      Выйти
+                    </a>
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="text-gray-600 hover:text-blue-600">
+                  <Link href="#">
+                    <a
+                      onClick={handleGoogleSignIn}
+                      className="md:px-2 lg:inline-block lg:ml-auto lg:mr-3 py-2 lg:px-6 bg-gray-100 hover:bg-gray-200 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+                    >
+                      Войти
+                    </a>
+                  </Link>
+                </li>
+                <li className="text-gray-600 hover:text-blue-600">
+                  <Link href="#">
+                    <a className="inline-block md:hidden xl:inline-block py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
+                      Зарегистрироваться
+                    </a>
+                  </Link>
+                  <Link href="#">
+                    <a className="hidden md:inline-block md:px-2 xl:hidden py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
+                      Заре...
+                    </a>
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
       </div>
-
-      <ul className={styles}>
-        <li>
-          <Link href="#">
-            <a className="text-sm  text-slate-500 hover:text-slate-600 custom-underline">
-              О нас
-            </a>
-          </Link>
-        </li>
-        <li className="text-gray-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="w-4 h-4 current-fill"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </li>
-        <li>
-          <Link href="#">
-            <a className="text-sm text-slate-500 hover:text-slate-600 custom-underline">
-              Пройти тест
-            </a>
-          </Link>
-        </li>
-        <li className="text-gray-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="w-4 h-4 current-fill"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </li>
-        <li>
-          <Link href="#">
-            <a className="text-sm  text-slate-500 hover:text-slate-600 custom-underline">
-              Наша цель
-            </a>
-          </Link>
-        </li>
-        <li className="text-gray-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="w-4 h-4 current-fill"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </li>
-        <li>
-          <Link href="#">
-            <a className="text-sm  text-slate-500 hover:text-slate-600 custom-underline">
-              Контакты
-            </a>
-          </Link>
-        </li>
-      </ul>
-
-      {user?.displayName ? (
-        <>
-          <Link href="/account">
-            <img
-              className="cursor-pointer lg:ml-auto w-10 h-9 lg:mr-3 p-1 rounded-full transition duration-200"
-              src={user?.photoURL}
-            />
-          </Link>
-          <Link href="#">
-            <a
-              onClick={handleSignOut}
-              className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-            >
-              Выйти
-            </a>
-          </Link>
-        </>
-      ) : (
-        <>
-          <Link href="#">
-            <a
-              onClick={handleGoogleSignIn}
-              className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-            >
-              Войти
-            </a>
-          </Link>
-          <Link href="#">
-            <a className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
-              Зарегистрироваться
-            </a>
-          </Link>
-        </>
-      )}
     </nav>
   );
 };

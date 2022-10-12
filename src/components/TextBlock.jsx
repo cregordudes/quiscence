@@ -10,8 +10,11 @@ const TextBlock = ({ title, heading, text, id }) => {
         {text}
       </p>
       {id == 1 && (
-        <button className="bg-indigo-500 text-slate-100 w-4/12 p-1 mt-3 rounded-xl">
-          Пройти тест
+        <button
+          className="mt-5 py-2 px-4 w-fit h-12 bgtext-white font-bold  border-b-4 text-white ease-linear transition-all duration-150
+          hover:border-0 bg-violet-600 hover:bg-violet-600  border-violet-800 hover:border-transparent rounded"
+        >
+          Пройти тест &#8250;
         </button>
       )}
     </div>
