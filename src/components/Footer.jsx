@@ -8,10 +8,10 @@ const Footer = () => {
           <div class="flex flex-wrap text-left lg:text-left">
             <div class="w-full lg:w-6/12 px-4">
               <h4 class="text-3xl fonat-semibold text-blueGray-700">
-                Lets keep in touch!
+                Есть вопросы?
               </h4>
               <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
-                Send us an email and we will be quick to answer
+                Свяжитесь с нами и мы ответим Вам!
               </h5>
               <div class="mt-6 lg:mb-0 mb-6">
                 <span className="bg-white rounded-lg rounded-l-full py-2 pl-4 pr-8">
@@ -32,62 +32,62 @@ const Footer = () => {
               <div class="flex flex-wrap items-top mb-6">
                 <div class="w-full lg:w-4/12 px-4 ml-auto">
                   <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
-                    Useful Links
+                    Полезные ссылки
                   </span>
                   <ul class="list-unstyled">
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/presentation?ref=njs-profile"
+                        href="#"
                       >
-                        About Us
+                        О нас
                       </a>
                     </li>
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://blog.creative-tim.com?ref=njs-profile"
+                        href="#"
                       >
-                        Blog
+                        Пройти тест
                       </a>
                     </li>
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.github.com/creativetimofficial?ref=njs-profile"
+                        href="#"
                       >
-                        Github
+                        Наша цель
                       </a>
                     </li>
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
+                        href="#"
                       >
-                        Free Products
+                        Контакты
                       </a>
                     </li>
                   </ul>
                 </div>
                 <div class="w-full lg:w-4/12 px-4">
                   <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
-                    Other Resources
+                    Другие ресуры:
                   </span>
                   <ul class="list-unstyled">
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
+                        href="https://www.mentalhealth.gov/basics/what-is-mental-health"
                       >
-                        MIT License
+                        mentalhealthg.gov
                       </a>
                     </li>
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/terms?ref=njs-profile"
+                        href="https://www.cdc.gov/mentalhealth/learn/index.htm"
                       >
-                        Terms &amp; Conditions
+                        cdc.gov
                       </a>
                     </li>
                     <li>
@@ -95,15 +95,15 @@ const Footer = () => {
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://creative-tim.com/privacy?ref=njs-profile"
                       >
-                        Privacy Policy
+                        creative-tim.com
                       </a>
                     </li>
                     <li>
                       <a
                         class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/contact-us?ref=njs-profile"
+                        href="https://www.medicalnewstoday.com/articles/154543#types"
                       >
-                        Contact Us
+                        medicalnewstoday.com
                       </a>
                     </li>
                   </ul>

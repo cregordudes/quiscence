@@ -52,7 +52,7 @@ const ProfilePresentation = () => {
                 </div>
               </div>
             </div>
-            <div class="mb-2 text-blueGray-600 text-center mt-4">
+            <div class="my-4 text-blueGray-600 text-center">
               <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
               Моя цель заключается в том чтобы достичь успеха и избавиться от
               моей депрессии блин
@@ -60,12 +60,6 @@ const ProfilePresentation = () => {
           </div>
         </div>
       </div>
-      <button
-        class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-        type="button"
-      >
-        Connect
-      </button>
     </section>
   );
 };

@@ -50,3 +50,13 @@ a {
   opacity: 1;
   transform: translate3d(0, 0.2em, 0);
 }
+
+.slider::-webkit-slider-thumb{ 
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  background-color: #6366f1 !important;
+  overflow: visible;
+  cursor: pointer;
+}

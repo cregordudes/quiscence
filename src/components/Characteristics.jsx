@@ -1,29 +1,20 @@
 import React from "react";
+import Range from "./Range";
 
 const Characteristics = () => {
+  const chars = [
+    { min: "Депрессия", max: "Счастье", value: 34 },
+    { min: "Пассивность", max: "Агрессия", value: 10 },
+    { min: "Пустота", max: "Наполненность", value: 45 },
+    { min: "Паника", max: "Спокйоствие", value: 70 },
+  ];
   return (
-    <div>
-      <div className="flex justify-between items-center">
-        <label
-          for="disabled-range"
-          class="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >
-          Min range
-        </label>
-        <label
-          for="disabled-range"
-          class="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >
-          Max range
-        </label>
-      </div>
-      <input
-        id="disabled-range"
-        type="range"
-        value="50"
-        class="w-full h-2 bg-gray-200 text-blue-700 rounded-lg appearance-none cursor-pointer dark:bg-blue-700"
-        disabled
-      />
+    <div className="mx-auto my-5 px-4 py-2 shadow-lg rounded-lg ">
+      <h2 className="text-slate-800 font-semibold text-lg">Characteristics</h2>
+
+      {chars.map((el, idx) => {
+        return <Range min={el.min} max={el.max} value={el.value} key={idx} />;
+      })}
     </div>
   );
 };

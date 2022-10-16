@@ -11,6 +11,8 @@ module.exports = {
         myYellow: "#FFD438",
         myGreen: "#6BD9A9",
         myPurple: "##6366f1",
+        gradientFrom: "#464a80",
+        gradientTo: "#2d2f6f",
       },
     },
   },
