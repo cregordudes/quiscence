@@ -1,6 +1,7 @@
+import { YoutubeSearchedFor } from "@mui/icons-material";
 import React from "react";
 
-const ProfilePresentation = () => {
+const ProfilePresentation = ({ user }) => {
   return (
     <section class="relative py-16 bg-blueGray-200 w-full md:w-1/2 lg:w-1/3">
       <div class="container mx-auto px-4">
@@ -17,7 +18,7 @@ const ProfilePresentation = () => {
             </div>
             <div class="text-center mt-4">
               <h3 class="text-4xl font-semibold leading-normal text-blueGray-700 mb-2">
-                Лола Кековна
+                {user.displayName}
               </h3>
               <div class="mb-2 text-blueGray-600">
                 <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>

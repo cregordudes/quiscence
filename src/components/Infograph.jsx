@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import graph from "/public/graph.jpg";
+import graph from "/public/grathick.png";
 
 const Infograph = () => {
   return (
-    <div class="p-4 flex flex-col mb-4 animated fadeIn justify-around bg-gradient-to-r from-gradientTo to-gradientFrom">
+    <div class="p-4 flex flex-col mb-4 animated fadeIn justify-around bg-gradient-to-r from-indigo-700 to-orange-300">
       <h1 className="font-bold text-2xl text-center text-white">
         Для помощи людям, недостаточно просто создать платформу.
       </h1>

@@ -1,19 +1,26 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
+import LoginForm from "./LoginForm";
+import SignInForm from "./SignInForm";
+import userImg from "/public/static/avatar.png";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
 
   const { googleSignIn, user, logOut } = UserAuth();
 
-  const handleGoogleSignIn = async () => {
-    try {
-      await googleSignIn();
-    } catch (error) {
-      console.log(error);
-    }
+  const signInWithEmail = () => {
+    setModal(!modal);
   };
+
+  const signInWitthGoogle = () => {
+    setLoginModal(!modal);
+  };
+
   const handleSignOut = async () => {
     try {
       await logOut();
@@ -21,7 +28,6 @@ const Navbar = () => {
       console.log(error);
     }
   };
-
   return (
     <nav className="w-full bg-white border-b-2">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -85,20 +91,30 @@ const Navbar = () => {
             <li className="text-slate-500 hover:text-slate-600 custom-underline">
               <Link href="/contacts">Контакты</Link>
             </li>
-            {user?.displayName ? (
+            {user?.email ? (
               <>
                 <li className="text-gray-600 hover:text-blue-600">
                   <Link href="/account">
-                    <img
-                      className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200"
-                      src={user?.photoURL}
-                      alt="photo"
-                    />
+                    {user?.photoURL ? (
+                      <img
+                        alt="photo"
+                        className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200"
+                        src={user.photoURL}
+                      />
+                    ) : (
+                      <Image
+                        alt="photo"
+                        width={40}
+                        height={40}
+                        className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200"
+                        src={userImg}
+                      />
+                    )}
                   </Link>
                 </li>
 
                 <li className="text-gray-600 hover:text-blue-600">
-                  <Link href="#">
+                  <Link href="/">
                     <a
                       onClick={handleSignOut}
                       className=" lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
@@ -113,7 +129,7 @@ const Navbar = () => {
                 <li className="text-gray-600 hover:text-blue-600">
                   <Link href="#">
                     <a
-                      onClick={handleGoogleSignIn}
+                      onClick={signInWitthGoogle}
                       className="md:px-2 lg:inline-block lg:ml-auto lg:mr-3 py-2 lg:px-6 bg-gray-100 hover:bg-gray-200 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
                     >
                       Войти
@@ -122,12 +138,18 @@ const Navbar = () => {
                 </li>
                 <li className="text-gray-600 hover:text-blue-600">
                   <Link href="#">
-                    <a className="inline-block md:hidden xl:inline-block py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
+                    <a
+                      onClick={signInWithEmail}
+                      className="inline-block md:hidden xl:inline-block py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                    >
                       Зарегистрироваться
                     </a>
                   </Link>
                   <Link href="#">
-                    <a className="hidden md:inline-block md:px-2 xl:hidden py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
+                    <a
+                      onClick={signInWithEmail}
+                      className="hidden md:inline-block md:px-2 xl:hidden py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                    >
                       Заре...
                     </a>
                   </Link>
@@ -137,6 +159,10 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+      {modal ? <LoginForm modal={modal} setModal={setModal} /> : null}
+      {loginModal ? (
+        <SignInForm loginModal={loginModal} setLoginModal={setLoginModal} />
+      ) : null}
     </nav>
   );
 };
