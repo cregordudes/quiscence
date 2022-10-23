@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
+import { UserPhoto } from "../context/PhotoContext";
 import LoginForm from "./LoginForm";
 import SignInForm from "./SignInForm";
-import userImg from "/public/static/avatar.png";
+// import userImg from "/public/static/avatar.png";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -12,10 +13,8 @@ const Navbar = () => {
   const [loginModal, setLoginModal] = useState(false);
 
   const { googleSignIn, user, logOut } = UserAuth();
-
-  const signInWithEmail = () => {
-    setModal(!modal);
-  };
+  const [img, setImg] = UserPhoto();
+  console.log(img);
 
   const signInWitthGoogle = () => {
     setLoginModal(!modal);
@@ -23,7 +22,8 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     try {
-      await logOut();
+      setTimeout(() => logOut(), 0);
+      // await logOut();
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +98,7 @@ const Navbar = () => {
                     {user?.photoURL ? (
                       <img
                         alt="photo"
-                        className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200"
+                        className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200 object-cover"
                         src={user.photoURL}
                       />
                     ) : (
@@ -106,8 +106,8 @@ const Navbar = () => {
                         alt="photo"
                         width={40}
                         height={40}
-                        className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200"
-                        src={userImg}
+                        className="cursor-pointer lg:ml-auto w-10 h-10 lg:mr-3 p-1 rounded-full transition duration-200 object-cover"
+                        src={img}
                       />
                     )}
                   </Link>
@@ -137,19 +137,13 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="text-gray-600 hover:text-blue-600">
-                  <Link href="#">
-                    <a
-                      onClick={signInWithEmail}
-                      className="inline-block md:hidden xl:inline-block py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-                    >
+                  <Link href="/register">
+                    <a className="inline-block md:hidden xl:inline-block py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
                       Зарегистрироваться
                     </a>
                   </Link>
-                  <Link href="#">
-                    <a
-                      onClick={signInWithEmail}
-                      className="hidden md:inline-block md:px-2 xl:hidden py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-                    >
+                  <Link href="/register">
+                    <a className="hidden md:inline-block md:px-2 xl:hidden py-2 lg:px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">
                       Заре...
                     </a>
                   </Link>
