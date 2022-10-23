@@ -25,10 +25,10 @@ const ContactForm = ({ email_to }) => {
 
     emailjs
       .sendForm(
-        "service_23aa46o",
-        "template_6amlv2a",
+        process.env.NEXT_PUBLIC_SERVICE_ID,
+        `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`,
         form.current,
-        "9NP23fZ5b4eoLW0mP"
+        `${process.env.NEXT_PUBLIC_PUBLIC_KEY}`
       )
       .then(
         (result) => {
@@ -39,6 +39,7 @@ const ContactForm = ({ email_to }) => {
         }
       );
   };
+
   return (
     <div>
       <div class="flex min-h-screen items-center justify-start">

@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCzTyRRBJoourS9t5i7FJ3xjF1YdeH9xm0",
-  authDomain: "quiscence-704f0.firebaseapp.com",
-  projectId: "quiscence-704f0",
-  storageBucket: "quiscence-704f0.appspot.com",
-  messagingSenderId: "386617088650",
-  appId: "1:386617088650:web:be30eaa8b9416801bfab73",
+  apiKey: `${process.env.NEXT_PUBLIC_API_KEY}`,
+  authDomain: `${process.env.NEXT_PUBLIC_AUTH_DOMAIN}`,
+  projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+  storageBucket: `${process.env.NEXT_PUBLIC_STORAGE_BUCKET}`,
+  messagingSenderId: `${process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID}`,
+  appId: `${process.env.NEXT_PUBLIC_APP_ID}`,
 };
 
 const app = initializeApp(firebaseConfig);
