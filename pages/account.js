@@ -4,13 +4,14 @@ import ProfilePresentation from "../src/components/ProfilePresentation";
 import Recommendations from "../src/components/Recommendations";
 import { UserAuth } from "../src/context/AuthContext";
 import { db } from "../src/firebase/config";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Loading from "../src/components/Loading";
 import { UserPhoto } from "../src/context/PhotoContext";
 
 export default function Account() {
   const { user, logout } = UserAuth();
   const [data, setData] = useState([]);
+  const [update, setUpdate] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const [img, setImg] = UserPhoto();
 
@@ -38,7 +39,7 @@ export default function Account() {
         <>
           <ProfilePresentation user={user} data={data} />
 
-          <ProfileInfo data={data} />
+          <ProfileInfo data={data} user={user} />
 
           <Recommendations data={data} />
         </>
