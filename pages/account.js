@@ -7,6 +7,7 @@ import { db } from "../src/firebase/config";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Loading from "../src/components/Loading";
 import { UserPhoto } from "../src/context/PhotoContext";
+import { useRouter } from "next/router";
 
 export default function Account() {
   const { user, logout } = UserAuth();
@@ -15,6 +16,8 @@ export default function Account() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [img, setImg] = UserPhoto();
 
+  const router = useRouter();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,12 +25,18 @@ export default function Account() {
         const docSnap = await getDoc(docRef);
         setData(docSnap.data());
 
+        if (data.length < 1) {
+          throw new Error("Please update your Data");
+        }
+
         setIsLoaded(true);
       } catch (e) {
-        console.log(e);
+        // router.push("/updateInfo");
+        // router.reload(window.location.pathname);
       }
     };
     fetchData();
+    console.log(data);
   }, [user.uid]);
 
   setImg(data.img);

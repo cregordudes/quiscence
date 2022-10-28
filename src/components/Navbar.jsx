@@ -14,7 +14,6 @@ const Navbar = () => {
 
   const { googleSignIn, user, logOut } = UserAuth();
   const [img, setImg] = UserPhoto();
-  console.log(img);
 
   const signInWitthGoogle = () => {
     setLoginModal(!modal);
