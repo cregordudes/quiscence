@@ -25,14 +25,14 @@ export default function Account() {
         const docSnap = await getDoc(docRef);
         setData(docSnap.data());
 
+        setIsLoaded(true);
+
         if (data.length < 1) {
           throw new Error("Please update your Data");
         }
-
-        setIsLoaded(true);
       } catch (e) {
         // router.push("/updateInfo");
-        // router.reload(window.location.pathname);
+        // router.reload("/updateInfo");
       }
     };
     fetchData();
@@ -40,7 +40,7 @@ export default function Account() {
   }, [user.uid]);
 
   setImg(data.img);
-  console.log(img);
+  // console.log(img);
 
   return (
     <div className="w-full flex flex-row justify-between">

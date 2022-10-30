@@ -32,7 +32,7 @@ const Goals = ({ data, user }) => {
     const value = e.target.value;
     setNewData(value);
   };
-  console.log("newData: ", newData);
+  // console.log("newData: ", newData);
   return (
     <div className="mx-auto px-4 py-2 shadow-xl text-slate-700 rounded-lg ">
       <div className="absolute right-0 cursor-pointer" onClick={enableEdit}>
