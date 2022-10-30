@@ -65,14 +65,17 @@ const UpdateInfo = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setData({ ...data, [email]: user.email });
+    if (!data.displayName) {
+      setData({ ...data, ["displayName"]: user.displayName });
+    }
+    setData({ ...data, ["email"]: user.email });
     setData({ ...data, ["password"]: "Registered via Google" });
     try {
-      // await setDoc(doc(db, "users", res.user.uid), {
-      //   ...data,
-      //   timestamp: serverTimestamp(),
-      // });
-      // await router.push("/account");
+      await setDoc(doc(db, "users", user.uid), {
+        ...data,
+        timestamp: serverTimestamp(),
+      });
+      await router.push("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -85,7 +88,7 @@ const UpdateInfo = () => {
     setData({ ...data, [id]: value });
   };
   console.log(data);
-  console.log(user);
+  // console.log(user);
   return (
     <section class="pb-4 pt-10 bg-white shadow-xl">
       <div className="w-full h-full z-10">
