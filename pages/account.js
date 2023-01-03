@@ -10,51 +10,51 @@ import { UserPhoto } from "../src/context/PhotoContext";
 import { useRouter } from "next/router";
 
 export default function Account() {
-  const { user, logout } = UserAuth();
-  const [data, setData] = useState([]);
-  const [update, setUpdate] = useState({});
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [img, setImg] = UserPhoto();
+   const { user, logout } = UserAuth();
+   const [data, setData] = useState([]);
+   const [update, setUpdate] = useState({});
+   const [isLoaded, setIsLoaded] = useState(false);
+   const [img, setImg] = UserPhoto();
 
-  const router = useRouter();
+   const router = useRouter();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const docRef = doc(db, "users", `${user.uid}`);
-        const docSnap = await getDoc(docRef);
-        setData(docSnap.data());
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const docRef = doc(db, "users", `${user.uid}`);
+            const docSnap = await getDoc(docRef);
+            setData(docSnap.data());
 
-        setIsLoaded(true);
+            setIsLoaded(true);
 
-        if (data.length < 1) {
-          throw new Error("Please update your Data");
-        }
-      } catch (e) {
-        // router.push("/updateInfo");
-        // router.reload("/updateInfo");
-      }
-    };
-    fetchData();
-    console.log(data);
-  }, [user.uid]);
+            if (data.length < 1) {
+               throw new Error("Please update your Data");
+            }
+         } catch (e) {
+            // router.push("/updateInfo");
+            // router.reload("/updateInfo");
+         }
+      };
+      fetchData();
+      console.log(data);
+   }, [user.uid]);
 
-  setImg(data.img);
-  // console.log(img);
+   setImg(data.img);
+   // console.log(img);
 
-  return (
-    <div className="w-full flex flex-row justify-between">
-      {isLoaded ? (
-        <>
-          <ProfilePresentation user={user} data={data} />
+   return (
+      <div className="w-full flex flex-row justify-between">
+         {isLoaded ? (
+            <>
+               <ProfilePresentation user={user} data={data} />
 
-          <ProfileInfo data={data} user={user} />
+               <ProfileInfo data={data} user={user} />
 
-          <Recommendations data={data} />
-        </>
-      ) : (
-        <Loading />
-      )}
-    </div>
-  );
+               <Recommendations data={data} />
+            </>
+         ) : (
+            <Loading />
+         )}
+      </div>
+   );
 }
