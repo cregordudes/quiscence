@@ -2,6 +2,9 @@
 mobile responsivity
 
 tests
+
+Сохранять стейт характеристик в бд, фетчить стейт и показывать характеристики
 fetch tests info to account page
 suggestions and courses
 update results
+show and compare with prev results

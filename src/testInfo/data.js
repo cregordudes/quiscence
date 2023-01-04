@@ -1,47 +1,64 @@
+export const types = [
+  "sleep",
+  "healthiness",
+  "satisfaction",
+  "depression",
+  "passivness",
+  "emptiness",
+  "anxiety",
+];
+
+//score == -10 bad, 0 needs consultation, 5 good, 10 exeptional
+
 export const questions = [
-   {
-      text: "What is the capital of America?",
-      options: [
-         { id: 0, text: "New York City", isCorrect: false },
-         { id: 1, text: "Boston", isCorrect: false },
-         { id: 2, text: "Santa Fe", isCorrect: false },
-         { id: 3, text: "Washington DC", isCorrect: true },
-      ],
-   },
-   {
-      text: "What year was the Constitution of America written?",
-      options: [
-         { id: 0, text: "1787", isCorrect: true },
-         { id: 1, text: "1776", isCorrect: false },
-         { id: 2, text: "1774", isCorrect: false },
-         { id: 3, text: "1826", isCorrect: false },
-      ],
-   },
-   {
-      text: "Who was the second president of the US?",
-      options: [
-         { id: 0, text: "John Adams", isCorrect: true },
-         { id: 1, text: "Paul Revere", isCorrect: false },
-         { id: 2, text: "Thomas Jefferson", isCorrect: false },
-         { id: 3, text: "Benjamin Franklin", isCorrect: false },
-      ],
-   },
-   {
-      text: "What is the largest state in the US?",
-      options: [
-         { id: 0, text: "California", isCorrect: false },
-         { id: 1, text: "Alaska", isCorrect: true },
-         { id: 2, text: "Texas", isCorrect: false },
-         { id: 3, text: "Montana", isCorrect: false },
-      ],
-   },
-   {
-      text: "Which of the following countries DO NOT border the US?",
-      options: [
-         { id: 0, text: "Canada", isCorrect: false },
-         { id: 1, text: "Russia", isCorrect: true },
-         { id: 2, text: "Cuba", isCorrect: true },
-         { id: 3, text: "Mexico", isCorrect: false },
-      ],
-   },
+  {
+    text: "Как хорошо вы спите?",
+    options: [
+      { id: 0, text: "Хорошо", type: "sleep", score: 2 },
+      { id: 1, text: "Нормально", type: "sleep", score: 1 },
+      { id: 2, text: "Средне", type: "sleep", score: 0 },
+      { id: 3, text: "Не очень", type: "sleep", score: -1 },
+      { id: 4, text: "Плохо", type: "sleep", score: -2 },
+    ],
+  },
+  {
+    text: "What year was the Constitution of America written?",
+    options: [
+      { id: 0, text: "Хорошо", type: "healthiness", score: 2 },
+      { id: 1, text: "Нормально", type: "healthiness", score: 1 },
+      { id: 2, text: "Средне", type: "healthiness", score: 0 },
+      { id: 3, text: "Не очень", type: "healthiness", score: -1 },
+      { id: 4, text: "Плохо", type: "healthiness", score: -2 },
+    ],
+  },
+  {
+    text: "Who was the second president of the US?",
+    options: [
+      { id: 0, text: "Хорошо", type: "satisfaction", score: 2 },
+      { id: 1, text: "Нормально", type: "satisfaction", score: 1 },
+      { id: 2, text: "Средне", type: "satisfaction", score: 0 },
+      { id: 3, text: "Не очень", type: "satisfaction", score: -1 },
+      { id: 4, text: "Плохо", type: "satisfaction", score: -2 },
+    ],
+  },
+  {
+    text: "What is the largest state in the US?",
+    options: [
+      { id: 0, text: "Хорошо", type: "depression", score: 2 },
+      { id: 1, text: "Нормально", type: "depression", score: 1 },
+      { id: 2, text: "Средне", type: "depression", score: 0 },
+      { id: 3, text: "Не очень", type: "depression", score: -1 },
+      { id: 4, text: "Плохо", type: "depression", score: -2 },
+    ],
+  },
+  {
+    text: "Which of the following countries DO NOT border the US?",
+    options: [
+      { id: 0, text: "Хорошо", type: "passivness", score: 2 },
+      { id: 1, text: "Нормально", type: "passivness", score: 1 },
+      { id: 2, text: "Средне", type: "passivness", score: 0 },
+      { id: 3, text: "Не очень", type: "passivness", score: -1 },
+      { id: 4, text: "Плохо", type: "passivness", score: -2 },
+    ],
+  },
 ];
