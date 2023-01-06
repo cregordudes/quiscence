@@ -4,12 +4,13 @@ import { doc, getDoc } from "firebase/firestore";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase/config";
 import Loading from "./Loading";
+import Link from "next/link";
 
 const Advices = () => {
    const { user } = UserAuth();
    const [data, setData] = useState({});
    const [isLoaded, setIsLoaded] = useState(false);
-   // const [percent, setPercent] = useState([]);
+   const [exists, setExists] = useState(true);
 
    useEffect(() => {
       const fetchData = async () => {
@@ -26,9 +27,12 @@ const Advices = () => {
          } catch (e) {}
       };
       fetchData();
+      if (!data) {
+         setExists(false);
+      }
    }, [user.uid]);
 
-   const percent = [data.sleep, data.healthiness, data.satisfaction];
+   const percent = [data?.sleep, data?.healthiness, data?.satisfaction];
 
    const results = [
       { color: "#FFD438", word: "Сон", percent: `${percent[0]}` },
@@ -46,28 +50,40 @@ const Advices = () => {
       <div className="relative flex flex-col min-w-0 py-4 px-2 break-words border border-t-0 bg-white w-full mb-4 shadow-xl rounded-lg">
          <h1 className="p-2 mt-2">Отслеживайте свои успехи</h1>
          <hr />
-         <p className="p-2 mt-2">Ваш общий результат результат:</p>
-         <ProgressBar
-            color={final.color}
-            word={final.word}
-            percent={final.percent}
-         />
-         <div className="p-2 mt-2">
-            {isLoaded ? (
-               results.map((el, idx) => {
-                  return (
-                     <ProgressBar
-                        color={el.color}
-                        word={el.word}
-                        percent={el.percent}
-                        key={idx}
-                     />
-                  );
-               })
+
+         {isLoaded ? (
+            exists ? (
+               <div className="p-2 mt-2">
+                  <p className="p-2 mt-2">Ваш средний результат результат:</p>
+                  <ProgressBar
+                     color={final.color}
+                     word={final.word}
+                     percent={final.percent}
+                  />
+                  {results.map((el, idx) => {
+                     return (
+                        <ProgressBar
+                           color={el.color}
+                           word={el.word}
+                           percent={el.percent}
+                           key={idx}
+                        />
+                     );
+                  })}
+               </div>
             ) : (
-               <Loading />
-            )}
-         </div>
+               <h1>
+                  Чтобы видеть вашу персонализированную характеристику -
+                  <Link href={"/tests"}>
+                     <a className="text-myPink font-bold text-lg">
+                        пройдите сначала тест
+                     </a>
+                  </Link>
+               </h1>
+            )
+         ) : (
+            <Loading />
+         )}
       </div>
    );
 };

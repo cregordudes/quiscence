@@ -84,7 +84,7 @@ const Tests = () => {
          console.log(e.message);
       }
    };
-   console.log(id);
+   //console.log(id);
 
    return (
       <div className="w-full pt-10 bg-white flex flex-col justify-center align-baseline text-center min-h-[35.4rem]">
