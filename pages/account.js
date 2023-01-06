@@ -36,7 +36,6 @@ export default function Account() {
          }
       };
       fetchData();
-      console.log(data);
    }, [user.uid]);
 
    setImg(data.img);
