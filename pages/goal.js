@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import Poster from "../src/components/Poster";
 import TitleHeader from "../src/components/TitleHeader";
@@ -66,18 +67,22 @@ const OurGoal = () => {
           />
 
           <div className="flex flex-row justify-evenly">
-            <button
-              className="py-2 px-4 w-fit h-12 bgtext-white font-bold  border-b-4 text-white ease-linear transition-all duration-150
+            <Link href={"/register"}>
+              <button
+                className="py-2 px-4 w-fit h-12 bgtext-white font-bold  border-b-4 text-white ease-linear transition-all duration-150
           hover:border-0 bg-violet-600 hover:bg-violet-600  border-violet-800 hover:border-transparent rounded"
-            >
-              Зарегистрироваться &#8250;
-            </button>
-            <button
-              className="py-2 px-4 w-fit h-12 bgtext-white font-bold  border-b-4 text-violet-800 ease-linear transition-all duration-150
+              >
+                Зарегистрироваться &#8250;
+              </button>
+            </Link>
+            <Link href={"/about"}>
+              <button
+                className="py-2 px-4 w-fit h-12 bgtext-white font-bold  border-b-4 text-violet-800 ease-linear transition-all duration-150
         hover:border-0 bg-slate-200 hover:bg-slate-200  border-slate-400 hover:border-transparent rounded"
-            >
-              Узнать больше &#8250;
-            </button>
+              >
+                Узнать больше &#8250;
+              </button>
+            </Link>
           </div>
         </div>
       </div>

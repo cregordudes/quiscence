@@ -4,8 +4,6 @@ mobile responsivity
 archetypes
 
 make suggestions based on tags
-suggestions and courses
-store courses in db 
 
 update results
 show and compare with prev results

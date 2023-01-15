@@ -47,7 +47,7 @@ const Advices = () => {
     percent: `${arifPercent}`,
   };
   return (
-    <div className="relative flex flex-col min-w-0 py-4 px-2 break-words border border-t-0 bg-white w-full mb-4 shadow-xl rounded-lg">
+    <div className="relative flex flex-col min-w-0 pb-4 px-2 break-words border border-t-0 bg-white w-full mb-4 shadow-xl rounded-lg">
       <h1 className="p-2 mt-2">Отслеживайте свои успехи</h1>
       <hr />
 
