@@ -4,18 +4,18 @@ import BeliefCard from "./BeliefCard";
 const OurBeliefs = () => {
   const beliefs = [
     {
-      title: "Heart title and text",
-      text: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+      title: "Любить и заботиться",
+      text: "Повысить осведомленность и понимание проблем психического здоровья",
       src: "/static/heart.png",
     },
     {
-      title: "Trophy title and text",
-      text: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+      title: "Помогать и поощрать",
+      text: "Предоставлять научно обоснованную информацию о лечении психических заболеваний",
       src: "/static/trophy.png",
     },
     {
-      title: "Bulb title and text",
-      text: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+      title: "Облегчать",
+      text: "Создайте поддерживающее сообщество, где люди могут делиться своим опытом и предлагать поддержку друг другу",
       src: "/static/idea.png",
     },
   ];
@@ -24,7 +24,9 @@ const OurBeliefs = () => {
     <div>
       <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12 py-4 shadow-xl border-1 rounded-xl">
         <h1 className="font-bold text-xl p-4 text-center">
-          Нами движут 3 ключевые вещи
+          Наша цель — предоставить всесторонние и доступные ресурсы по охране
+          психического здоровья людям, которые ищут поддержку и информацию. Мы
+          стремимся:
         </h1>
         <div className="flex flex-row justify-between flex-wrap">
           {beliefs.map((el, idx) => {

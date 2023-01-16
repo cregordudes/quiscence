@@ -15,7 +15,7 @@ const About = () => {
           "Наша миссия - помочь людям улучшить свое психологическое здоровье"
         }
         text={
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+          "Мы — преданная команда профессионалов в области психического здоровья и защитников интересов, которые увлечены улучшением жизни тех, кто борется с проблемами психического здоровья. Мы понимаем, что поиск помощи может быть трудным и утомительным, но мы здесь, чтобы сделать этот процесс максимально простым и доступным."
         }
         src={doctorImg}
       />
@@ -23,7 +23,7 @@ const About = () => {
       <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
         <TitleHeader
           title="Люди для нас - главное"
-          text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+          text="Наша миссия состоит в том, чтобы обеспечить безопасную и благоприятную среду, в которой люди могут узнать о своем психическом здоровье, найти эффективные методы лечения и пообщаться с другими людьми, которые понимают, через что они проходят. Мы считаем, что, предоставляя точную информацию и разнообразные ресурсы, мы можем дать людям возможность взять под контроль свое психическое благополучие и жить полноценной жизнью."
         />
       </div>
       <OurBeliefs />

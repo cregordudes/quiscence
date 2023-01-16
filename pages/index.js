@@ -8,33 +8,33 @@ export default function Home() {
   const texts = [
     {
       id: 1,
-      title: "Digital therapy",
-      heading: "Some Catchy Phrase",
-      text: "Crafting your user experience has never been easier, with ourintuitive dragn drop interface you will be creating beatifuldesigns in no time.",
+      title: "Добро пожаловать на наш сайт о  ",
+      heading: "Психическом здоровье!",
+      text: "Мы понимаем, что забота о своем психическом благополучии так же важна, как и забота о физическом здоровье. Вот почему мы стремимся предоставить вам инструменты и ресурсы, необходимые для улучшения и поддержания вашего психического здоровья.      ",
       src: "https://assets.website-files.com/5ef0b47911602b652f6a26d7/6273fb9da1844358fba00efe_Group%201486%20(1).png",
       isRev: false,
     },
     {
       id: 2,
-      title: "Manage and measure it",
-      heading: "Some Catchy Phrase",
-      text: "Crafting your user experience has never been easier, with ourintuitive dragn drop interface you will be creating beatifuldesigns in no time.",
+      title: "Ваш интерактивный помошник!",
+      heading: "Измеряй, улучшай",
+      text: "На нашем сайте вы найдете множество информации по различным темам психического здоровья, включая управление стрессом, тревогой, депрессией и многим другим. Мы также предлагаем различные тесты, курсы и упражнения, которые помогут вам лучше понять свои мысли и эмоции.",
       src: "https://assets.website-files.com/5ef0b47911602b652f6a26d7/62fd160455e2617918c46991_Wellbeing-p-800.jpg",
       isRev: true,
     },
     {
       id: 3,
-      title: "Learn and become healthy",
-      heading: "Some Catchy Phrase",
-      text: "Crafting your user experience has never been easier, with ourintuitive dragn drop interface you will be creating beatifuldesigns in no time.",
+      title: "Узнавай и становись здоровым!",
+      heading: "Ты не один",
+      text: "На нашем сайте представлены личные истории людей, которые успешно справились со своими собственными проблемами психического здоровья.",
       src: "https://assets.website-files.com/5ef0b47911602b652f6a26d7/62fd160352960ef699fd9790_Group%201798-p-800.jpg",
       isRev: false,
     },
     {
       id: 4,
-      title: "Take care",
-      heading: "Some Catchy Phrase",
-      text: "Crafting your user experience has never been easier, with ourintuitive dragn drop interface you will be creating beatifuldesigns in no time.",
+      title: "Если вы находитесь в кризисной ситуации",
+      heading: "знайте, что вы не одиноки.",
+      text: "Если вы нуждаетесь в немедленной помощи - помощь доступна. Мы составили список экстренных горячих линий и ресурсов, которые доступны круглосуточно и без выходных.",
       src: "https://assets.website-files.com/5ef0b47911602b652f6a26d7/62fd160455e2617918c46991_Wellbeing-p-800.jpg",
       isRev: true,
     },
@@ -52,8 +52,8 @@ export default function Home() {
         <section class="py-20 bg-white">
           <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
             <TitleHeader
-              title="Mental wellbeing"
-              text="Add some nice touches to your interface with our latest designs, components, and templates. We've crafted a beautiful user experience that your visitors will love"
+              title="Ментальное здоровье"
+              text=" Этот сайт предлагает вам инструменты для отслеживания вашего психологического состояния и понимания его влияния на вашу жизнь."
             />
           </div>
 
