@@ -11,6 +11,7 @@ import yellowblob from "/public/yellowBlob.png";
 import pinkblob from "/public/pinkBlob.png";
 import { UserAuth } from "../context/AuthContext";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Recommendations = () => {
   const [courses, setCourses] = useState([]);
@@ -20,19 +21,26 @@ const Recommendations = () => {
   const { user } = UserAuth();
   const [data, setData] = useState({});
 
-  const fetchData = async () => {
-    const docRef = doc(db, "test-results", `${user.uid}`);
-    const docSnap = await getDoc(docRef);
-    setData(docSnap.data());
+  const router = useRouter();
 
-    const arr = [];
-    const querySnapshot = await getDocs(collection(db, "videos"));
-    querySnapshot.forEach((doc) => {
-      //console.log(doc.data());
-      arr.push(doc.data());
-    });
-    setCourses(arr);
-    setIsLoaded(true);
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "test-results", `${user.uid}`);
+      const docSnap = await getDoc(docRef);
+      setData(docSnap.data());
+
+      const arr = [];
+      const querySnapshot = await getDocs(collection(db, "videos"));
+      querySnapshot.forEach((doc) => {
+        //console.log(doc.data());
+        arr.push(doc.data());
+      });
+      setCourses(arr);
+      docSnap.data() ? setIsLoaded(true) : null;
+    } catch (e) {
+      // router.push("/updateInfo");
+      // router.reload("/updateInfo");
+    }
   };
 
   useEffect(() => {
@@ -54,37 +62,11 @@ const Recommendations = () => {
       const array = courses.filter((el) => {
         return el.meta === meta;
       });
+      console.log(array);
 
       setState([array[randomStart()], array[randomStart() + 1]]);
     }
   }, [courses, data, isLoaded]);
-
-  // const min = Math.min(...Object.values(data));
-
-  //   const meta = Object.keys(data).find((key) => data[key] === min);
-
-  //   const randomStart = () => {
-  //     const len = courses.filter((el) => {
-  //       return el.meta === meta;
-  //     }).length;
-
-  //     return Math.floor(Math.random() * (len - 1));
-  //   };
-  //   const array = courses.filter((el) => {
-  //     return el.meta === meta;
-  //   });
-
-  //   const suggestions = [];
-  //   suggestions.push(array[randomStart()]);
-  //   suggestions.push(array[randomStart() + 1]);
-  //   console.log(suggestions);
-
-  //   setState(suggestions);
-  // };
-
-  // useEffect(() => {
-  //   setReccomedations();
-  // }, [courses]);
 
   return (
     <section className="relative py-16 bg-blueGray-200 w-full md:w-1/2 lg:w-1/3">

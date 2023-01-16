@@ -5,13 +5,14 @@ import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase/config";
 import Loading from "./Loading";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Characteristics = () => {
   const { user } = UserAuth();
   const [data, setData] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const [exists, setExists] = useState(true);
-
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,13 +24,15 @@ const Characteristics = () => {
         if (data.length < 1) {
           throw new Error("Please update your Data");
         }
-      } catch (e) {}
+      } catch (e) {
+        // router.push("/updateInfo");
+      }
     };
     fetchData();
     if (!data) {
       setExists(false);
     }
-  }, [user.uid]);
+  }, [user.uid, exists, data]);
 
   const chars = [
     { min: "Депрессия", max: "Счастье", value: data?.depression },
