@@ -31,15 +31,14 @@ export default function Account() {
           throw new Error("Please update your Data");
         }
       } catch (e) {
-        // router.push("/updateInfo");
-        // router.reload("/updateInfo");
+        //   router.push("/updateInfo");
+        //   router.reload("/updateInfo");
       }
     };
     fetchData();
   }, [user.uid]);
 
   setImg(data.img);
-  // console.log(img);
 
   return (
     <div className="w-full flex flex-row justify-between">

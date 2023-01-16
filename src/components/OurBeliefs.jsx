@@ -28,7 +28,6 @@ const OurBeliefs = () => {
         </h1>
         <div className="flex flex-row justify-between flex-wrap">
           {beliefs.map((el, idx) => {
-            console.log(el.src);
             const listColor =
               idx == 0 ? "#E68BFF" : idx == 1 ? "#6BD9A9" : "#4ba4c8";
             return (

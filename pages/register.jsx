@@ -55,8 +55,6 @@ const Register = () => {
           });
         }
       );
-
-      console.log(uniqueName);
     };
     file && uploadFile();
   }, [file]);

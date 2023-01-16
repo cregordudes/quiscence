@@ -4,8 +4,8 @@ mobile responsivity
 archetypes
 
 make suggestions based on tags
+more suggestions page
 
 update results
 show and compare with prev results
 
-fix redux/ at lest fix images

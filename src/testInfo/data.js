@@ -8,8 +8,6 @@ export const types = [
   "anxiety",
 ];
 
-//score == -10 bad, 0 needs consultation, 5 good, 10 exeptional
-
 export const questions = [
   {
     text: "Ваш сон поверхностный и неспокойный?",

@@ -1,6 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { UserPhoto } from "../context/PhotoContext";
@@ -15,10 +16,11 @@ const Navbar = () => {
   const [loginModal, setLoginModal] = useState(false);
 
   const [data, setData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [img, setImg] = UserPhoto();
 
   const { googleSignIn, user, logOut } = UserAuth();
-  const [img, setImg] = UserPhoto();
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,16 +28,13 @@ const Navbar = () => {
         const docRef = doc(db, "users", `${user.uid}`);
         const docSnap = await getDoc(docRef);
         setData(docSnap.data());
-        setIsLoaded(true);
         setImg(data.img);
       } catch (e) {
         console.error(e);
       }
     };
     fetchData();
-  }, [user?.uid, data.img]);
-
-  console.log(img);
+  }, [user?.uid, data?.img]);
 
   const signInWitthGoogle = () => {
     setLoginModal(!modal);
@@ -44,6 +43,7 @@ const Navbar = () => {
   const handleSignOut = async () => {
     try {
       setTimeout(() => logOut(), 0);
+      router.push("/");
       // await logOut();
     } catch (error) {
       console.log(error);
