@@ -1,11 +1,6 @@
-//TODO
-mobile responsivity
-
-archetypes
-
-make suggestions based on tags
-more suggestions page
-
-update results
-show and compare with prev results
+- update results
+- show and compare with prev results
+(отзывов пользователей и интервью. Для измерения показателей использования сайта,
+таких как количество времени, проведенного на платформе, и количество завершенных вмешательств.
+опросник здоровья пациента (PHQ-9) и шкала генерализованного тревожного расстройства (GAD-7))
 
