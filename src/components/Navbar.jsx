@@ -31,6 +31,7 @@ const Navbar = () => {
         setImg(data.img);
       } catch (e) {
         console.error(e);
+        // throw new Error(e);
       }
     };
     fetchData();

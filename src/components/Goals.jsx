@@ -68,7 +68,7 @@ const Goals = ({ data, user }) => {
               type="submit"
               onClick={handleUpdate}
               className="py-2 px-4 w-fit h-10 bgtext-white font-bold  border-b-4 text-white ease-linear transition-all duration-150
-  hover:border-0 bg-teal-600 hover:bg-teal-500  border-teal-800 hover:border-transparent rounded"
+            hover:border-0 bg-teal-600 hover:bg-teal-500  border-teal-800 hover:border-transparent rounded"
             >
               Сохранить
             </button>

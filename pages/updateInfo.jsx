@@ -79,6 +79,7 @@ const UpdateInfo = () => {
     } catch (e) {
       setError(e.message);
       console.log(e.message);
+      throw new Error(e);
     }
   };
 

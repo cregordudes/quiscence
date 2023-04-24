@@ -18,6 +18,7 @@ const LoginForm = ({ modal, setModal }) => {
     } catch (e) {
       setError(e.msessage);
       console.log(e.msessage);
+      throw new Error(e);
     }
   };
 

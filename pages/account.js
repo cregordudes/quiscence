@@ -8,6 +8,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Loading from "../src/components/Loading";
 import { UserPhoto } from "../src/context/PhotoContext";
 import { useRouter } from "next/router";
+import { Construction, ConstructionOutlined } from "@mui/icons-material";
 
 export default function Account() {
   const { user, logout } = UserAuth();
@@ -18,27 +19,31 @@ export default function Account() {
 
   const router = useRouter();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const docRef = doc(db, "users", `${user.uid}`);
-        const docSnap = await getDoc(docRef);
-        setData(docSnap.data());
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "users", `${user.uid}`);
+      const docSnap = await getDoc(docRef);
+      setData(docSnap.data());
 
-        setIsLoaded(true);
+      setIsLoaded(true);
 
-        if (data.length < 1) {
-          throw new Error("Please update your Data");
-        }
-      } catch (e) {
-        //   router.push("/updateInfo");
-        //   router.reload("/updateInfo");
+      if (data.length < 1) {
+        // throw new Error("data.lenght < 1");
       }
-    };
-    fetchData();
-  }, [user?.uid]);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  setImg(data.img);
+  useEffect(() => {
+    if (isLoaded) {
+      return;
+    }
+    fetchData();
+  }, [user?.uid, data]);
+
+  // setImg(data.img);
+  // console.log(img);
 
   return (
     <div className="w-full flex flex-row justify-between">

@@ -25,10 +25,12 @@ const Characteristics = () => {
           throw new Error("Please update your Data");
         }
       } catch (e) {
+        console.log(e);
+        throw new Error(e);
         // router.push("/updateInfo");
       }
     };
-    fetchData();
+    if (!isLoaded) fetchData();
     if (!data) {
       setExists(false);
     }

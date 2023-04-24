@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const TextBlock = ({ title, heading, text, id }) => {
@@ -10,12 +11,14 @@ const TextBlock = ({ title, heading, text, id }) => {
         {text}
       </p>
       {id == 1 && (
-        <button
-          className="mt-5 py-2 px-4 w-fit h-12 bgtext-white font-bold  border-b-4 text-white ease-linear transition-all duration-150
-          hover:border-0 bg-violet-600 hover:bg-violet-600  border-violet-800 hover:border-transparent rounded"
-        >
-          Пройти тест &#8250;
-        </button>
+        <Link href="/tests">
+          <button
+            className="mt-5 py-2 px-4 w-fit h-12 bgtext-white font-bold  border-b-4 text-white ease-linear transition-all duration-150
+          hover:border-0 bg-violet-600 hover:bg-violet-600  border-violet-800 hover:border-transparent rounded underline-none"
+          >
+            Пройти тест &#8250;
+          </button>
+        </Link>
       )}
     </div>
   );

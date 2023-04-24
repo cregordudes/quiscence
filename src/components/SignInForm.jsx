@@ -18,6 +18,7 @@ const SignInForm = ({ loginModal, setLoginModal }) => {
     } catch (e) {
       setError(e.msessage);
       console.log(e.msessage);
+      throw new Error(e);
     }
   };
 
