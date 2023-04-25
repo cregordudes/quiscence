@@ -11,53 +11,53 @@ import { useRouter } from "next/router";
 import { Construction, ConstructionOutlined } from "@mui/icons-material";
 
 export default function Account() {
-  const { user, logout } = UserAuth();
-  const [data, setData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [update, setUpdate] = useState({});
-  const [img, setImg] = UserPhoto();
+   const { user, logout } = UserAuth();
+   const [data, setData] = useState([]);
+   const [isLoaded, setIsLoaded] = useState(false);
+   const [update, setUpdate] = useState({});
+   const [img, setImg] = UserPhoto();
 
-  const router = useRouter();
+   const router = useRouter();
 
-  const fetchData = async () => {
-    try {
-      const docRef = doc(db, "users", `${user.uid}`);
-      const docSnap = await getDoc(docRef);
-      setData(docSnap.data());
+   const fetchData = async () => {
+      try {
+         const docRef = doc(db, "users", `${user.uid}`);
+         const docSnap = await getDoc(docRef);
+         setData(docSnap.data());
 
-      setIsLoaded(true);
+         setIsLoaded(true);
 
-      if (data.length < 1) {
-        // throw new Error("data.lenght < 1");
+         if (data.length < 1) {
+            // throw new Error("data.lenght < 1");
+         }
+      } catch (e) {
+         console.log(e);
       }
-    } catch (e) {
-      console.log(e);
-    }
-  };
+   };
 
-  useEffect(() => {
-    if (isLoaded) {
-      return;
-    }
-    fetchData();
-  }, [user?.uid, data]);
+   useEffect(() => {
+      if (isLoaded) {
+         return;
+      }
+      fetchData();
+   }, [user?.uid, data]);
 
-  // setImg(data.img);
-  // console.log(img);
+   setImg(data.img);
+   // console.log(img);
 
-  return (
-    <div className="w-full flex flex-row justify-between">
-      {isLoaded ? (
-        <>
-          <ProfilePresentation user={user} data={data} />
+   return (
+      <div className="w-full flex flex-row justify-between">
+         {isLoaded ? (
+            <>
+               <ProfilePresentation user={user} data={data} />
 
-          <ProfileInfo data={data} user={user} />
+               <ProfileInfo data={data} user={user} />
 
-          <Recommendations data={data} />
-        </>
-      ) : (
-        <Loading />
-      )}
-    </div>
-  );
+               <Recommendations />
+            </>
+         ) : (
+            <Loading />
+         )}
+      </div>
+   );
 }
