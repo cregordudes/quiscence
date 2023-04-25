@@ -61,9 +61,6 @@ const RadarChart = ({ oldResults, newResults }) => {
    };
    // }, [chartRef, oldResults, newResults]);
 
-   console.log(newResults);
-   console.log(oldResults);
-
    return (
       <div className="h-128">
          <Radar data={chartData} options={chartOptions} />
