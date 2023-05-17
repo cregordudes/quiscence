@@ -5,14 +5,14 @@ import Goals from "./Goals";
 import Comparison from "./Comparison";
 
 const ProfileInfo = ({ data, user }) => {
-  return (
-    <section className="relative py-16 bg-blueGray-200 w-full md:w-1/2 lg:w-1/3">
-      <Bio data={data.bio} user={user} />
-      <Characteristics />
-      <Comparison user={user} />
-      <Goals data={data.goal} user={user} />
-    </section>
-  );
+   return (
+      <section className="relative py-16 bg-blueGray-200 w-full md:w-1/2 lg:w-1/3">
+         <Bio data={data.bio} user={user} />
+         <Characteristics />
+         <Comparison user={user} />
+         <Goals data={data.goal} user={user} />
+      </section>
+   );
 };
 
 export default ProfileInfo;

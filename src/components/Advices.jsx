@@ -47,7 +47,7 @@ const Advices = ({ data }) => {
          <h1 className="p-2 mt-2">Отслеживайте свои успехи</h1>
          <hr />
 
-         {exists && arifPercent !== NaN ? (
+         {exists ? (
             <div className="">
                <p className="">Ваш средний результат:</p>
                <ProgressBar

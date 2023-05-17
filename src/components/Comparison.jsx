@@ -33,9 +33,9 @@ const Comparison = ({ user }) => {
             setIsLoaded(true);
             setExists(true);
 
-            if (data.length < 1) {
-               throw new Error("Please update your Data");
-            }
+            //if (data?.length < 1) {
+            //   throw new Error("Please update your Data");
+            //}
          } catch (e) {
             throw new Error(e);
             // router.push("/updateInfo");
@@ -48,7 +48,7 @@ const Comparison = ({ user }) => {
          setExists(false);
       }
 
-      if (data.prevValues) {
+      if (data?.prevValues) {
          const { prevValues, ...newValues } = data;
          setResults(Object.values(newValues));
          setOldResults(Object.values(prevValues));
@@ -81,7 +81,7 @@ const Comparison = ({ user }) => {
    return (
       <div>
          {isLoaded ? (
-            exists && data.prevValues ? (
+            exists && data?.prevValues ? (
                <div className="mx-auto px-4 py-2 shadow-xl text-slate-700 rounded-lg ">
                   <div
                      className="absolute right-2 cursor-pointer"
